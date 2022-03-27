@@ -1,0 +1,24 @@
+{
+  "name": "trade-management-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kapeiharshad/trade-management-api.git"
+  },
+  "author": "Harshad Kapei",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kapeiharshad/trade-management-api/issues"
+  },
+  "homepage": "https://github.com/kapeiharshad/trade-management-api#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "express": "^4.17.3",
+    "mongoose": "^6.2.7"
+  }
+}
