@@ -5,6 +5,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
 const router = express.Router();
+require('dotenv').config()
 
 const app = express();
 let routeErr = false;
@@ -32,7 +33,7 @@ fs.readdirSync(path.normalize('./routes')).every(file => {
 // database connection
 if (!routeErr) {
     const dbURI =
-        "mongodb://localhost:27017/trade_management";
+        process.env.DB_URL;
     mongoose
         .connect(dbURI, {
             useNewUrlParser: true,
@@ -40,7 +41,7 @@ if (!routeErr) {
         })
         .then((result) => {
             console.log("MongoDB connect at 3100")
-            app.listen(3100);
+            app.listen(process.env.PORT);
         })
         .catch((err) => console.log(err));
 }
