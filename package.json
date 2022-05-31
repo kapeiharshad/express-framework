@@ -1,5 +1,5 @@
 {
-  "name": "trade-management-api",
+  "name": "express-framework",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kapeiharshad/trade-management-api.git"
+    "url": "git+https://github.com/kapeiharshad/express-framework.git"
   },
   "author": "Harshad Kapei",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/kapeiharshad/trade-management-api/issues"
+    "url": "https://github.com/kapeiharshad/express-framework/issues"
   },
-  "homepage": "https://github.com/kapeiharshad/trade-management-api#readme",
+  "homepage": "https://github.com/kapeiharshad/express-framework#readme",
   "dependencies": {
     "cookie-parser": "^1.4.6",
     "dotenv": "^16.0.0",

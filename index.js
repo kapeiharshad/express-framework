@@ -22,7 +22,7 @@ const swaggerDefinition = {
     title: 'API Documentation',
     version: '1.0.0',
     description:
-      'This is a documentation of REST API for trade management application.',
+      'This is a documentation of REST API applications.',
     license: {
       name: 'Licensed Under MIT',
       url: 'https://spdx.org/licenses/MIT.html',
@@ -39,7 +39,6 @@ const swaggerDefinition = {
     },
   ]
 };
-console.log(process.env.SWAGGER_PORT)
 
 const options = {
   swaggerDefinition,
@@ -81,5 +80,5 @@ if (!routeErr) {
       app.listen(process.env.PORT);
       console.log(`Server listening at ${process.env.PORT}`);
     })
-    .catch(err => console.log(err));
+    .catch(err => console.log("Db connection error:- ",err));
 }
