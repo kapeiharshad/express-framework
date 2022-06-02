@@ -11,10 +11,10 @@ const router = express.Router();
  *         description: Returns a hello string.
  */
 router.get('/', (req, res) => {
-    try {
-        res.send("hello");
-    } catch (error) {
-        return error;
-    }
+  try {
+    res.send('hello');
+  } catch (error) {
+    return error;
+  }
 });
 module.exports = router;
