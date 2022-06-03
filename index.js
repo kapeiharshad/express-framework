@@ -8,6 +8,7 @@ const cookieParser = require('cookie-parser');
 const swaggerJSDoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 require('dotenv').config();
+const logger = require('./logger');
 
 const app = express();
 let routeErr = false;
@@ -61,7 +62,7 @@ fs.readdirSync(path.normalize('./routes')).every(file => {
     }
   } catch (error) {
     routeErr = true;
-    console.log('Server routing error:- ', error);
+    logger.error('Server routing error ', { error: error });
     return false;
   }
 });
@@ -76,7 +77,7 @@ if (!routeErr) {
     })
     .then(result => {
       app.listen(process.env.PORT);
-      console.log(`Server listening at ${process.env.PORT}`);
+      logger.info(`Server listening at ${process.env.PORT}`);
     })
-    .catch(err => console.log('Db connection error:- ', err));
+    .catch(err => logger.error('Db connection error ', { error: err }));
 }
