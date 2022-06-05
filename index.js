@@ -50,7 +50,7 @@ const swaggerSpec = swaggerJSDoc(options);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 //routing
-fs.readdirSync(path.normalize('./routes')).every(file => {
+fs.readdirSync(path.normalize('./routes')).map(file => {
   try {
     const routeName = file.includes('.route.js')
       ? file.split('.route.js').join('')
@@ -62,7 +62,7 @@ fs.readdirSync(path.normalize('./routes')).every(file => {
     }
   } catch (error) {
     routeErr = true;
-    logger.error('Server routing error ', { error: error });
+    logger.error('Server routing error ', { errorMsg: error });
     return false;
   }
 });
@@ -79,5 +79,5 @@ if (!routeErr) {
       app.listen(process.env.PORT);
       logger.info(`Server listening at ${process.env.PORT}`);
     })
-    .catch(err => logger.error('Db connection error ', { error: err }));
+    .catch(err => logger.error('Db connection error ', { errorMsg: err }));
 }
