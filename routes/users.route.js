@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
+const Utility = require('../helpers/utility');
 const UserService = require('../services/users.service');
+const { addUser } = require('../validation');
 
 /**
  * @swagger
@@ -11,12 +13,15 @@ const UserService = require('../services/users.service');
  *       200:
  *         description: Returns a hello string.
  */
-router.post('/', async (req, res) => {
+router.post('/', addUser, async (req, res) => {
   try {
     const result = await UserService.addUser(req.body.name);
-    res.send(result);
+    if (result.error) {
+      return Utility.render(res, { success: false, msg: result.error });
+    }
+    return Utility.render(res, result);
   } catch (error) {
-    return error;
+    return Utility.render(res, { success: false, msg: error });
   }
 });
 module.exports = router;

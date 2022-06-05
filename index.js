@@ -8,7 +8,7 @@ const cookieParser = require('cookie-parser');
 const swaggerJSDoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 require('dotenv').config();
-const logger = require('./logger');
+const logger = require('./helpers/logger');
 
 const app = express();
 let routeErr = false;
