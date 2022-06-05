@@ -7,13 +7,13 @@ let db;
 
 beforeAll(async () => {
   connection = await MongoClient.connect(
-    'mongodb://localhost:27017/test_trade_managements',
+    'mongodb://localhost:27017/test_express_framework',
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     },
   );
-  db = await connection.db('test_trade_managements');
+  db = await connection.db('test_express_framework');
 });
 afterAll(async () => {
   await db.dropDatabase();
